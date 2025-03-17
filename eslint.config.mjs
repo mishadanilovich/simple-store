@@ -13,7 +13,7 @@ const eslintConfig = [
   ...compat.config({
     extends: ['next/core-web-vitals', 'next/typescript', 'prettier'],
     plugins: ['simple-import-sort'],
-    ignorePatterns: ['components/ui'],
+    ignorePatterns: ['components/ui', 'prisma/migrations'],
     overrides: [
       {
         files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
