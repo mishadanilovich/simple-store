@@ -4,3 +4,4 @@ export interface IRequestResponse {
 }
 
 export * from './product';
+export * from './role';
