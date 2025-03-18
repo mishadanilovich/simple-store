@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { FC } from 'react';
 import { auth } from '@/auth';
-import { SignInForm } from '@/components/forms/SignIn';
+import { SignUpForm } from '@/components/forms/SignUp';
 import {
   Card,
   CardContent,
@@ -15,8 +15,8 @@ import {
 import { APP_NAME, ROUTES } from '@/lib/constants';
 import {
   METADATA_TITLE,
-  SIGN_IN_DESCRIPTION,
-  SIGN_IN_TITLE,
+  SIGN_UP_DESCRIPTION,
+  SIGN_UP_TITLE,
 } from './constants';
 import { IProps } from './types';
 
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   title: METADATA_TITLE,
 };
 
-const SignInPage: FC<IProps> = async ({ searchParams }) => {
+const SignUpPage: FC<IProps> = async ({ searchParams }) => {
   const { callbackUrl } = await searchParams;
 
   const session = await auth();
@@ -43,17 +43,17 @@ const SignInPage: FC<IProps> = async ({ searchParams }) => {
               priority
             />
           </Link>
-          <CardTitle className='text-center'>{SIGN_IN_TITLE}</CardTitle>
+          <CardTitle className='text-center'>{SIGN_UP_TITLE}</CardTitle>
           <CardDescription className='text-center'>
-            {SIGN_IN_DESCRIPTION}
+            {SIGN_UP_DESCRIPTION}
           </CardDescription>
         </CardHeader>
         <CardContent className='space-y-4'>
-          <SignInForm />
+          <SignUpForm />
         </CardContent>
       </Card>
     </div>
   );
 };
 
-export default SignInPage;
+export default SignUpPage;

@@ -4,6 +4,7 @@ import { hashSync } from 'bcrypt-ts-edge';
 import { isRedirectError } from 'next/dist/client/components/redirect-error';
 import { signIn, signOut } from '@/auth';
 import { prisma } from '@/db/prisma';
+import { formatError } from '@/lib/utils';
 import { signInSchema, signUpSchema } from '@/lib/validations';
 import { IRequestResponse } from '@/types';
 
@@ -63,7 +64,7 @@ export const signUpWithCredentials = async (
       throw error;
     }
 
-    return { success: false, message: 'User was not registered!' };
+    return { success: false, message: formatError(error) };
   }
 };
 

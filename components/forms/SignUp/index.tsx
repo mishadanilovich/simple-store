@@ -7,26 +7,28 @@ import { useFormStatus } from 'react-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { signInWithCredentials } from '@/lib/actions/user';
+import { signUpWithCredentials } from '@/lib/actions/user';
 import { ROUTES } from '@/lib/constants';
 import {
+  CONFIRM_PASSWORD_LABEL,
   defaultValues,
   EMAIL_LABEL,
   FormFields,
   initialFormState,
+  NAME_LABEL,
   PASSWORD_LABEL,
-  PENDING_SIGN_IN_BUTTON,
+  PENDING_SIGN_UP_BUTTON,
   SIGN_IN_BUTTON,
+  SIGN_IN_LABEL,
   SIGN_UP_BUTTON,
-  SIGN_UP_LABEL,
 } from './constants';
 
-export const SignInForm = () => {
+export const SignUpForm = () => {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') || ROUTES.HOME;
 
   const [formData, action] = useActionState(
-    signInWithCredentials,
+    signUpWithCredentials,
     initialFormState
   );
 
@@ -35,7 +37,7 @@ export const SignInForm = () => {
 
     return (
       <Button className='w-full' disabled={pending}>
-        {pending ? PENDING_SIGN_IN_BUTTON : SIGN_IN_BUTTON}
+        {pending ? PENDING_SIGN_UP_BUTTON : SIGN_UP_BUTTON}
       </Button>
     );
   };
@@ -44,6 +46,17 @@ export const SignInForm = () => {
     <form action={action}>
       <input type='hidden' name={FormFields.CALLBACK_URL} value={callbackUrl} />
       <div className='space-y-4'>
+        <div>
+          <Label htmlFor={FormFields.NAME}>{NAME_LABEL}</Label>
+          <Input
+            id={FormFields.NAME}
+            name={FormFields.NAME}
+            type='text'
+            required
+            autoComplete='name'
+            defaultValue={defaultValues[FormFields.NAME]}
+          />
+        </div>
         <div>
           <Label htmlFor={FormFields.EMAIL}>{EMAIL_LABEL}</Label>
           <Input
@@ -67,6 +80,19 @@ export const SignInForm = () => {
           />
         </div>
         <div>
+          <Label htmlFor={FormFields.CONFIRM_PASSWORD}>
+            {CONFIRM_PASSWORD_LABEL}
+          </Label>
+          <Input
+            id={FormFields.CONFIRM_PASSWORD}
+            name={FormFields.CONFIRM_PASSWORD}
+            type='password'
+            required
+            autoComplete='confirmPassword'
+            defaultValue={defaultValues[FormFields.CONFIRM_PASSWORD]}
+          />
+        </div>
+        <div>
           <SubmitButton />
         </div>
 
@@ -75,9 +101,9 @@ export const SignInForm = () => {
         )}
 
         <div className='text-sm text-center text-muted-foreground'>
-          {SIGN_UP_LABEL}{' '}
-          <Link href={ROUTES.SIGN_UP} target='_self' className='link'>
-            {SIGN_UP_BUTTON}
+          {SIGN_IN_LABEL}{' '}
+          <Link href={ROUTES.SIGN_IN} target='_self' className='link'>
+            {SIGN_IN_BUTTON}
           </Link>
         </div>
       </div>
