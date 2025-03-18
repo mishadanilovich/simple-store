@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { APP_NAME, ROUTES } from '@/lib/constants';
-import Menu from './components/Menu';
+import Menu from './Menu';
 
 const Header = () => {
   return (
