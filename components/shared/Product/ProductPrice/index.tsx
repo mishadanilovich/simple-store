@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { DOLLAR_SYMBOL } from './constants';
 import { IProps } from './types';
 
-const ProductPrice: FC<IProps> = ({ price, className }) => {
+export const ProductPrice: FC<IProps> = ({ price, className }) => {
   const stringPrice = price.toFixed(2);
   const [intValue, floatValue] = stringPrice.split('.');
 
@@ -15,5 +15,3 @@ const ProductPrice: FC<IProps> = ({ price, className }) => {
     </p>
   );
 };
-
-export default ProductPrice;

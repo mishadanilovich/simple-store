@@ -18,7 +18,7 @@ import {
   ThemeMode,
 } from './constants';
 
-const ModeToggle = () => {
+export const ModeToggle = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -49,5 +49,3 @@ const ModeToggle = () => {
     </DropdownMenu>
   );
 };
-
-export default ModeToggle;

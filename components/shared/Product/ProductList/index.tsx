@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import ProductCard from '../ProductCard';
+import { ProductCard } from '../ProductCard';
 import { EMPTY_PRODUCT_LIST } from './constants';
 import { IProps } from './types';
 
@@ -23,5 +23,3 @@ export const ProductList: FC<IProps> = ({ data, title, limit }) => {
     </div>
   );
 };
-
-export default ProductList;

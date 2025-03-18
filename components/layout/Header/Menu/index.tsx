@@ -1,27 +1,21 @@
-import { EllipsisVertical, UserIcon } from 'lucide-react';
-import Link from 'next/link';
-import CartButton from '@/components/shared/CartButton';
-import ModeToggle from '@/components/shared/ModeToggle';
-import { Button } from '@/components/ui/button';
+import { EllipsisVertical } from 'lucide-react';
+import { CartButton } from '@/components/shared/CartButton';
+import { ModeToggle } from '@/components/shared/ModeToggle';
+import { UserButton } from '@/components/shared/UserButton';
 import {
   Sheet,
   SheetContent,
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { ROUTES } from '@/lib/constants';
 import { MENU_TITLE } from './constants';
 
 const Menu = () => (
   <div className='flex justify-end gap-3'>
-    <nav className='hidden w-full max-w-xs gap-1 md:flex'>
+    <nav className='hidden w-full max-w-xs gap-2 md:flex'>
       <ModeToggle />
       <CartButton />
-      <Button asChild>
-        <Link href={ROUTES.SIGN_IN}>
-          <UserIcon /> Sign In
-        </Link>
-      </Button>
+      <UserButton />
     </nav>
     <nav className='flex align-middle gap-3 md:hidden'>
       <ModeToggle />
@@ -32,11 +26,7 @@ const Menu = () => (
         <SheetContent className='flex flex-col items-start'>
           <SheetTitle>{MENU_TITLE}</SheetTitle>
           <div className='flex w-full justify-between'>
-            <Button asChild>
-              <Link href={ROUTES.SIGN_IN}>
-                <UserIcon /> Sign In
-              </Link>
-            </Button>
+            <UserButton />
             <CartButton />
           </div>
         </SheetContent>

@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { FC } from 'react';
 import { ProductImages } from '@/components/shared/Product/ProductImages';
-import ProductPrice from '@/components/shared/Product/ProductPrice';
+import { ProductPrice } from '@/components/shared/Product/ProductPrice';
 import { StockBadge } from '@/components/shared/StockBadge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';

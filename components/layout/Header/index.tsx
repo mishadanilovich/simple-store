@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { APP_NAME, ROUTES } from '@/lib/constants';
 import Menu from './Menu';
 
-const Header = () => {
+export const Header = () => {
   return (
     <header className='w-full border-b'>
       <div className='wrapper flex-between'>
@@ -26,5 +26,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

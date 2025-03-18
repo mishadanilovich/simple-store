@@ -3,11 +3,11 @@ import Link from 'next/link';
 import { FC } from 'react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { ROUTES } from '@/lib/constants';
-import ProductPrice from '../ProductPrice';
+import { ProductPrice } from '../ProductPrice';
 import { OUT_OF_STOCK } from './constants';
 import { IProps } from './types';
 
-const ProductCard: FC<IProps> = ({ product }) => {
+export const ProductCard: FC<IProps> = ({ product }) => {
   return (
     <Card className='w-full max-w-sm'>
       <CardHeader>
@@ -38,5 +38,3 @@ const ProductCard: FC<IProps> = ({ product }) => {
     </Card>
   );
 };
-
-export default ProductCard;
